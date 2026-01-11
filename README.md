@@ -1,0 +1,1 @@
+Minersmp test
