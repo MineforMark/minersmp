@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinerSMP - Staff</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .staff-section {
+            margin: 50px 0;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Section titles match player name colors per role */
+        .section-title.role-owner { color: #4B0082; }
+        .section-title.role-co-owner { color: #FF1493; }
+        .section-title.role-manager { color: #8B0000; }
+        .section-title.role-staff-manager { color: #FF6347; }
+        .section-title.role-supervisor { color: #FF8C00; }
+        .section-title.role-admin { color: #FF0000; }
+        .section-title.role-head-dev { color: #00FFFF; }
+        .section-title.role-dev { color: #00FFFF; }
+        .section-title.role-mod-manager { color: #00008B; }
+        .section-title.role-helper-manager { color: #B8860B; }
+        .section-title.role-sr-mod { color: #1E90FF; }
+        .section-title.role-mod { color: #0000FF; }
+        .section-title.role-helper { color: #00FF00; }
+        .section-title.role-jr-dev { color: #228B22; }
+        .section-title.role-trainee { color: #FF8C00; }
+        .section-title.role-discord-staff-manager { color: #5865F2; }
+        .section-title.role-discord-staff { color: #5865F2; }
+        .section-title.role-builder { color: #FF8C00; }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .staff-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 0.8s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
+        }
+
+        .skin-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .minecraft-skin {
+            width: 150px;
+            height: 150px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .role-mod .minecraft-skin,
+        .role-helper .minecraft-skin,
+        .role-trainee .minecraft-skin,
+        .role-sr-mod .minecraft-skin,
+        .role-mod-manager .minecraft-skin,
+        .role-helper-manager .minecraft-skin,
+        .role-dev .minecraft-skin,
+        .role-jr-dev .minecraft-skin,
+        .role-discord-staff .minecraft-skin,
+        .role-builder .minecraft-skin {
+            width: 100px;
+            height: 100px;
+        }
+
+        .staff-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .role-mod .staff-name,
+        .role-helper .staff-name,
+        .role-trainee .staff-name,
+        .role-sr-mod .staff-name,
+        .role-mod-manager .staff-name,
+        .role-helper-manager .staff-name,
+        .role-dev .staff-name,
+        .role-jr-dev .staff-name {
+            font-size: 1em;
+        }
+
+        .staff-role {
+            font-size: 0.9em;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .role-owner {
+            color: #4B0082;
+        }
+
+        .role-owner .staff-name {
+            color: #4B0082;
+        }
+
+        .role-manager {
+            color: #8B0000;
+        }
+
+        .role-manager .staff-name {
+            color: #8B0000;
+        }
+
+        .role-staff-manager {
+            color: #FF6347;
+        }
+
+        .role-staff-manager .staff-name {
+            color: #FF6347;
+        }
+
+        .role-co-owner {
+            color: #FF1493;
+        }
+
+        .role-co-owner .staff-name {
+            color: #FF1493;
+        }
+
+        .role-supervisor {
+            color: #FF8C00;
+        }
+
+        .role-supervisor .staff-name {
+            color: #FF8C00;
+        }
+
+        .role-admin {
+            color: #FF0000;
+        }
+
+        .role-admin .staff-name {
+            color: #FF0000;
+        }
+
+        .role-mod {
+            color: #0000FF;
+        }
+
+        .role-mod .staff-name {
+            color: #0000FF;
+        }
+
+        .role-helper {
+            color: #95E1D3;
+        }
+
+        .role-helper .staff-name {
+            color: #00FF00;
+        }
+
+        .role-trainee {
+            color: #FF8C00;
+        }
+
+        .role-trainee .staff-name {
+            color: #FF8C00;
+        }
+
+        .role-head-dev {
+            color: #00FFFF;
+        }
+
+        .role-head-dev .staff-name {
+            color: #00FFFF;
+        }
+
+        .role-dev {
+            color: #00FFFF;
+        }
+
+        .role-dev .staff-name {
+            color: #00FFFF;
+        }
+
+        .role-sr-mod {
+            color: #1E90FF;
+        }
+
+        .role-sr-mod .staff-name {
+            color: #1E90FF;
+        }
+
+        .role-mod-manager {
+            color: #00008B;
+        }
+
+        .role-mod-manager .staff-name {
+            color: #00008B;
+        }
+
+        .role-helper-manager {
+            color: #B8860B;
+        }
+
+        .role-helper-manager .staff-name {
+            color: #B8860B;
+        }
+
+        .role-builder {
+            color: #FF8C00;
+        }
+
+        .role-builder .staff-name {
+            color: #FF8C00;
+        }
+
+        .role-jr-dev {
+            color: #228B22;
+        }
+
+        .role-jr-dev .staff-name {
+            color: #228B22;
+        }
+
+        .role-discord-staff-manager {
+            color: #5865F2;
+        }
+
+        .role-discord-staff-manager .staff-name {
+            color: #000000;
+        }
+
+        .role-discord-staff {
+            color: #5865F2;
+        }
+
+        .role-discord-staff .staff-name {
+            color: #FFFFFF;
+        }
+
+        .hiring-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            border: 3px dashed #5865F2;
+        }
+
+        .hiring-text {
+            font-size: 2em;
+            color: #5865F2;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hire-btn {
+            background: #5865F2;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hire-btn:hover {
+            background: #4752C4;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⛏️ MinerSMP Staff</h1>
+        <p class="tagline">Meet Our Dedicated Team</p>
+        <a href="main.html" class="back-link">← Back to Home</a>
+    </header>
+
+    <div class="container">
+        <!-- OWNER -->
+        <div class="staff-section">
+            <h2 class="section-title role-owner">Owner</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-owner">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/mineformark/150" alt="mineformark" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">Mineformark</div>
+                    <div class="staff-role">Owner</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CO-OWNER -->
+        <div class="staff-section">
+            <h2 class="section-title role-co-owner">Co-Owner</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-co-owner">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/BoesBoes02/150" alt="BoeSB0es77" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">BoeSB0es77</div>
+                    <div class="staff-role">Co-Owner</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GENERAL MANAGER -->
+        <div class="staff-section">
+            <h2 class="section-title role-manager">General Manager</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-manager">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/CrimsonDawn/150" alt="CrimsonDawn" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">CrimsonDawn</div>
+                    <div class="staff-role">General Manager</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STAFF MANAGER -->
+        <div class="staff-section">
+            <h2 class="section-title role-staff-manager">Staff Manager</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-staff-manager">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/QuantumStar/150" alt="QuantumStar" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">QuantumStar</div>
+                    <div class="staff-role">Staff Manager</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEAD DEV -->
+        <div class="staff-section">
+            <h2 class="section-title role-head-dev">Head Developer</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-head-dev">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/CodeMaster/150" alt="CodeMaster" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">CodeMaster</div>
+                    <div class="staff-role">Head Dev</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DISCORD STAFF MANAGER -->
+        <div class="staff-section">
+            <h2 class="section-title role-discord-staff-manager">Discord Staff Manager</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-discord-staff-manager hiring-card">
+                    <div class="hiring-text">🔍 Looking for Hire</div>
+                    <a href="https://discord.gg/tzcH3J7Uqc" target="_blank" class="hire-btn">Apply on Discord</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUPERVISOR -->
+        <div class="staff-section">
+            <h2 class="section-title role-supervisor">Supervisor</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-supervisor">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/VortexKing/150" alt="VortexKing" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">VortexKing</div>
+                    <div class="staff-role">Supervisor</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADMINS -->
+        <div class="staff-section">
+            <h2 class="section-title role-admin">Administrators</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-admin">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/ShadowNinja/150" alt="ShadowNinja" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">ShadowNinja</div>
+                    <div class="staff-role">Administrator</div>
+                </div>
+
+                <div class="staff-card role-admin">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/LunaWolf/150" alt="LunaWolf" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">LunaWolf</div>
+                    <div class="staff-role">Administrator</div>
+                </div>
+
+                <div class="staff-card role-admin">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/PhoenixRise/150" alt="PhoenixRise" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">PhoenixRise</div>
+                    <div class="staff-role">Administrator</div>
+                </div>
+
+                <div class="staff-card role-admin">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/NovaStorm/150" alt="NovaStorm" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">NovaStorm</div>
+                    <div class="staff-role">Administrator</div>
+                </div>
+
+                <div class="staff-card role-admin">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/ZenithGamer/150" alt="ZenithGamer" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">ZenithGamer</div>
+                    <div class="staff-role">Administrator</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEV -->
+        <div class="staff-section">
+            <h2 class="section-title role-dev">Developers</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-dev">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/SyntaxError/150" alt="SyntaxError" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">SyntaxError</div>
+                    <div class="staff-role">Dev</div>
+                </div>
+
+                <div class="staff-card role-dev">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/ByteWizard/150" alt="ByteWizard" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">ByteWizard</div>
+                    <div class="staff-role">Dev</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOD MANAGER -->
+        <div class="staff-section">
+            <h2 class="section-title role-mod-manager">Mod Manager</h2>
+            <div class="staff-grid">
+                    <div class="staff-card role-mod-manager">
+                        <div class="skin-container">
+                            <img src="https://mc-heads.net/avatar/ModLeader/150" alt="ForGeKn1ght" class="minecraft-skin">
+                        </div>
+                        <div class="staff-name">ForGeKn1ght</div>
+                        <div class="staff-role">Mod Manager</div>
+                    </div>
+            </div>
+        </div>
+
+        <!-- HELPER MANAGER -->
+        <div class="staff-section">
+            <h2 class="section-title role-helper-manager">Helper Manager</h2>
+            <div class="staff-grid">
+                    <div class="staff-card role-helper-manager">
+                        <div class="skin-container">
+                            <img src="https://mc-heads.net/avatar/HelperChief/150" alt="SaGeWarDen5" class="minecraft-skin">
+                        </div>
+                        <div class="staff-name">SaGeWarDen5</div>
+                        <div class="staff-role">Helper Manager</div>
+                    </div>
+            </div>
+        </div>
+
+        <!-- SR MOD -->
+        <div class="staff-section">
+            <h2 class="section-title role-sr-mod">Senior Moderators</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-sr-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/VeteranGuard/150" alt="VeteranGuard" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">VeteranGuard</div>
+                    <div class="staff-role">Sr Mod</div>
+                </div>
+
+                <div class="staff-card role-sr-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/EliteWarden/150" alt="EliteWarden" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">EliteWarden</div>
+                    <div class="staff-role">Sr Mod</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODERATORS -->
+        <div class="staff-section">
+            <h2 class="section-title role-mod">Moderators</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/ScarletPhoenix/150" alt="ScArletPhoeNix42" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">ScArletPhoeNix42</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/IcebreakDragon/150" alt="IceBreakDR4G0N" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">IceBreakDR4G0N</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/ThunderStrike/150" alt="ThundeR5trike" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">ThundeR5trike</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/VoidShadow/150" alt="VoidShad0w7" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">VoidShad0w7</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/CrimsonGuard/150" alt="CrimsonG4rd" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">CrimsonG4rd</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/EchoMage/150" alt="EcHoMage9" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">EcHoMage9</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/BlazeFury/150" alt="BlazeFury21" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">BlazeFury21</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/NeonAce/150" alt="NeonAce" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">NeonAce</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/SilverWind/150" alt="SilverWind" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">SilverWind</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/TimberLord/150" alt="TimberLord" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">TimberLord</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/PyroBlaze/150" alt="PyroBlaze" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">PyroBlaze</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/FrostbiteKing/150" alt="FrostbiteKing" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">FrostbiteKing</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/LunarEcho/150" alt="LunarEcho" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">LunarEcho</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+
+                <div class="staff-card role-mod">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/SolarKnight/150" alt="SolarKnight" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">SolarKnight</div>
+                    <div class="staff-role">Moderator</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BUILDERS -->
+        <div class="staff-section">
+            <h2 class="section-title role-builder">Builders</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-builder">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/TerraMaster/150" alt="TerraMaster" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">TerraMaster</div>
+                    <div class="staff-role">Builder</div>
+                </div>
+
+                <div class="staff-card role-builder">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/ArchStone/150" alt="ArchStone" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">ArchStone</div>
+                    <div class="staff-role">Builder</div>
+                </div>
+
+                <div class="staff-card role-builder">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/SculptMaster/150" alt="SculptMaster" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">SculptMaster</div>
+                    <div class="staff-role">Builder</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JR DEV -->
+        <div class="staff-section">
+            <h2 class="section-title role-jr-dev">Junior Developers</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-jr-dev">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/CodeNinja/150" alt="CodeNinja" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">CodeNinja</div>
+                    <div class="staff-role">Jr Dev</div>
+                </div>
+
+                <div class="staff-card role-jr-dev">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/PixelCoder/150" alt="PixelCoder" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">PixelCoder</div>
+                    <div class="staff-role">Jr Dev</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HELPERS -->
+        <div class="staff-section">
+            <h2 class="section-title role-helper">Helpers</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/AzureSkye/150" alt="AzuReSkye3" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">AzuReSkye3</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/RadiantSage/150" alt="RadiantS4ge" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">RadiantS4ge</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/LunaTide/150" alt="LuNaTiDe7" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">LuNaTiDe7</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/SolarFlare/150" alt="SoLarFlar3" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">SoLarFlar3</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/CelestialHex/150" alt="CeLesTialH3x" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">CeLesTialH3x</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/TwilightNova/150" alt="TwiLightNoVa9" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">TwiLightNoVa9</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/MysticOrb/150" alt="MysticOrb" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">MysticOrb</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/VenomStrike/150" alt="VenomStrike" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">VenomStrike</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/ShadowHelix/150" alt="ShadowHelix" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">ShadowHelix</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/PrismShift/150" alt="PrismShift" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">PrismShift</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+
+                <div class="staff-card role-helper">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/NexusFlow/150" alt="NexusFlow" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">NexusFlow</div>
+                    <div class="staff-role">Helper</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DISCORD STAFF -->
+        <div class="staff-section">
+            <h2 class="section-title role-discord-staff">Discord Staff</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">SilentVortex</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">ThunderBlaze</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">MysticEcho</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">PhantomSky</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">IcyNebula</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">SolarFlare</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">CrimsonGhost</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">VortexKing</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">LunaVoid</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+
+                <div class="staff-card role-discord-staff">
+                    <div class="staff-name">NovaStorm</div>
+                    <div class="staff-role">Discord Staff</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRAINEES -->
+        <div class="staff-section">
+            <h2 class="section-title role-trainee">Trainees</h2>
+            <div class="staff-grid">
+                <div class="staff-card role-trainee">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/NovaPath/150" alt="NovaPath" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">NovaPath</div>
+                    <div class="staff-role">Trainee</div>
+                </div>
+
+                <div class="staff-card role-trainee">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/EchoSeeker/150" alt="EchoSeeker" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">EchoSeeker</div>
+                    <div class="staff-role">Trainee</div>
+                </div>
+
+                <div class="staff-card role-trainee">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/InfinityBlaze/150" alt="InfinityBlaze" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">InfinityBlaze</div>
+                    <div class="staff-role">Trainee</div>
+                </div>
+
+                <div class="staff-card role-trainee">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/CosmicVoid/150" alt="CosmicVoid" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">CosmicVoid</div>
+                    <div class="staff-role">Trainee</div>
+                </div>
+
+                <div class="staff-card role-trainee">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/ZephyrWind/150" alt="ZephyrWind" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">ZephyrWind</div>
+                    <div class="staff-role">Trainee</div>
+                </div>
+
+                <div class="staff-card role-trainee">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/StormChaser/150" alt="StormChaser" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">StormChaser</div>
+                    <div class="staff-role">Trainee</div>
+                </div>
+
+                <div class="staff-card role-trainee">
+                    <div class="skin-container">
+                        <img src="https://mc-heads.net/avatar/DuskRaven/150" alt="DuskRaven" class="minecraft-skin">
+                    </div>
+                    <div class="staff-name">DuskRaven</div>
+                    <div class="staff-role">Trainee</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OWNER BIO -->
+    <section style="padding: 60px 20px; text-align: center; background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.1) 100%); margin: 40px 0; border-radius: 15px;">
+        <h2 style="font-size: 2.5em; color: #4CAF50; margin-bottom: 20px;">Meet the Founder</h2>
+        <div style="max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 15px; border: 2px solid #4CAF50;">
+            <h3 style="font-size: 1.8em; color: #8BC34A; margin-bottom: 15px;">Mineformark</h3>
+            <p style="font-size: 1.2em; color: #ddd; line-height: 1.8; margin-bottom: 20px;">
+                The visionary behind MinerSMP, who founded this incredible server back in 2020 with a dream to create the ultimate Minecraft multiplayer experience. Starting from nothing but passion and determination, Mineformark built MinerSMP from the ground up, crafting an expansive world filled with endless possibilities. Through years of dedication and hard work, the server has grown into a thriving community of thousands of players, all thanks to the relentless effort and innovation of its founder.
+            </p>
+            <p style="font-size: 1.1em; color: #aaa; margin-bottom: 20px;">
+                Interested in joining our amazing staff team? We're always looking for talented individuals to help us grow the server!
+            </p>
+            <a href="https://discord.gg/tzcH3J7Uqc" target="_blank" style="display: inline-block; background: #5865F2; color: white; padding: 15px 40px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1.1em; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 20px rgba(88, 101, 242, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">Apply on Discord</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MinerSMP. All rights reserved.</p>
+    </footer>
+</body>
+</html>

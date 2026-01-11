@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinerSMP - The Ultimate Minecraft Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial Black', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #0a0e27 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(76, 175, 80, 0.2);
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #4CAF50;
+            transform: scale(1.1);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 50px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 26, 62, 0.85) 0%, rgba(26, 26, 62, 0.85) 100%), url('https://wallpapercave.com/wp/wp4754738.jpg') center/cover;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.3) 0%, transparent 70%);
+            animation: floatingOrb 15s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(139, 195, 74, 0.3) 0%, transparent 70%);
+            animation: floatingOrb 20s ease-in-out infinite reverse;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A, #CDDC39);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(76, 175, 80, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 2em;
+            color: #8BC34A;
+            margin-bottom: 40px;
+            font-weight: bold;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.3em;
+            color: #ddd;
+            margin-bottom: 50px;
+            max-width: 800px;
+            line-height: 1.6;
+            animation: slideInUp 1s ease-out 0.4s both;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .server-info {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            padding: 25px 50px;
+            border-radius: 15px;
+            font-size: 2em;
+            font-weight: bold;
+            color: #000;
+            margin: 40px 0;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4);
+            animation: slideInUp 1s ease-out 0.6s both;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .server-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .server-info:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(76, 175, 80, 0.6);
+        }
+
+        .server-info:hover::before {
+            left: 100%;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, #1a1a3e 0%, #0a0e27 100%);
+        }
+
+        .section-title {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            animation: slideUp 0.8s ease-out;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.3) 0%, transparent 70%);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(76, 175, 80, 0.8);
+            box-shadow: 0 25px 50px rgba(76, 175, 80, 0.3);
+        }
+
+        .feature-card:hover::before {
+            top: -25%;
+            left: -25%;
+        }
+
+        .feature-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .feature-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+
+        .feature-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #ddd;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 50px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(139, 195, 74, 0.1) 100%);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-box {
+            animation: slideInUp 1s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.4em;
+            color: #8BC34A;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 50px;
+            text-align: center;
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            animation: floatingOrb 20s ease-in-out infinite;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .cta-section p {
+            font-size: 1.4em;
+            color: #000;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: #000;
+            color: #4CAF50;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            color: #8BC34A;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: #000;
+            border: 2px solid #000;
+        }
+
+        .btn-secondary:hover {
+            background: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            color: #888;
+            border-top: 2px solid rgba(76, 175, 80, 0.3);
+            font-size: 1.1em;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.85;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+            }
+        }
+
+        @keyframes floatingOrb {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(30px, 30px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5em;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .features {
+                padding: 60px 20px;
+            }
+
+            .cta-section {
+                padding: 60px 20px;
+            }
+
+            footer {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">⛏️ MinerSMP</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="staff.html">Staff</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="creators.html">Creators</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>⛏️ Welcome to MinerSMP ⛏️</h1>
+            <p class="hero-subtitle">The Ultimate Multiplayer Minecraft Experience</p>
+            <p class="hero-description">
+                Join thousands of players in a thriving community dedicated to building, exploring, and creating unforgettable memories together.
+            </p>
+            <div class="server-info">
+                🎮 Server IP: MinerSMP.net 🎮
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose MinerSMP?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Vast Worlds</h3>
+                <p>Explore massive procedurally generated worlds with unique biomes, dungeons, and hidden treasures waiting to be discovered.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Thriving Community</h3>
+                <p>Connect with passionate players from around the globe. Make friends, form teams, and collaborate on epic projects.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏗️</div>
+                <h3>Creative Freedom</h3>
+                <p>Build anything your imagination desires. From modest cottages to grand castles, express yourself without limits.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Custom Features</h3>
+                <p>Experience enhanced gameplay with custom plugins, events, and exclusive features not found in vanilla Minecraft.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎪</div>
+                <h3>Regular Events</h3>
+                <p>Participate in server-wide events, competitions, and seasonal challenges with amazing rewards and glory.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚔️</div>
+                <h3>PvP & Survival</h3>
+                <p>Test your skills in thrilling combat encounters or embrace peaceful survival gameplay. The choice is yours.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👨‍💼</div>
+                <h3>Amazing Staff</h3>
+                <p>Our dedicated management team works around the clock to keep the server running smoothly and fairly. <a href="staff.html" style="color: #4CAF50; text-decoration: underline; font-weight: bold;">Meet the Team</a></p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎬</div>
+                <h3>Content Creators</h3>
+                <p>Join our growing network of talented content creators streaming and uploading MinerSMP gameplay. <a href="creators.html" style="color: #4CAF50; text-decoration: underline; font-weight: bold;">View Creators</a></p>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Active Players</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Builds</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">5★</div>
+                <div class="stat-label">Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2>Ready to Join?</h2>
+            <p>Don't miss out on the adventure of a lifetime. Join MinerSMP today and become part of an amazing community!</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Copy Server IP</button>
+                <a href="staff.html" class="btn btn-secondary">Meet The Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MinerSMP. All rights reserved. | Dedicated to the ultimate Minecraft experience</p>
+    </footer>
+
+    <script>
+        // Copy IP to clipboard
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            navigator.clipboard.writeText('MinerSMP.net');
+            this.textContent = '✓ Copied!';
+            setTimeout(() => {
+                this.textContent = 'Copy Server IP';
+            }, 2000);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

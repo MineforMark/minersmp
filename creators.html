@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinerSMP - Content Creators</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .creators-section {
+            margin: 50px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #4CAF50;
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .creators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .creator-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 0.8s ease-out;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .creator-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
+            border-color: rgba(76, 175, 80, 0.6);
+        }
+
+        .creator-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .creator-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 8px;
+        }
+
+        .creator-handle {
+            font-size: 0.95em;
+            color: #8BC34A;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .creator-info {
+            font-size: 0.9em;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        .twitch-link {
+            background: #9146FF;
+        }
+
+        .youtube-link {
+            background: #FF0000;
+        }
+
+        .tiktok-link {
+            background: #25F4EE;
+        }
+
+        .platform-link {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .platform-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⛏️ MinerSMP Content Creators</h1>
+        <p class="tagline">Join Our Growing Network of Talented Streamers</p>
+        <a href="main.html" class="back-link">← Back to Home</a>
+    </header>
+
+    <div class="container">
+        <!-- TWITCH STREAMERS -->
+        <div class="creators-section">
+            <h2 class="section-title">🎥 Twitch Streamers</h2>
+            <div class="creators-grid">
+                <div class="creator-card">
+                    <div class="creator-icon">👾</div>
+                    <div class="creator-name">MiningMaster</div>
+                    <div class="creator-handle">@MiningMasterTV</div>
+                    <div class="creator-info">Building epic castles and exploring underground caves daily. 15K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">⛏️</div>
+                    <div class="creator-name">BlockBuster</div>
+                    <div class="creator-handle">@BlockBusterGaming</div>
+                    <div class="creator-info">Competitive PvP tournaments and survival challenges. 22K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🏰</div>
+                    <div class="creator-name">ArchitectDev</div>
+                    <div class="creator-handle">@ArchitectDevs</div>
+                    <div class="creator-info">Advanced building techniques and terraforming tutorials. 18K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">⚔️</div>
+                    <div class="creator-name">VengeanceKing</div>
+                    <div class="creator-handle">@VengeanceKingz</div>
+                    <div class="creator-info">PvP duels and faction battles. 19K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🌈</div>
+                    <div class="creator-name">SkyBuilder</div>
+                    <div class="creator-handle">@SkyBuilderTV</div>
+                    <div class="creator-info">Skybase construction and sky island survival. 16K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎮</div>
+                    <div class="creator-name">ProGamer99</div>
+                    <div class="creator-handle">@ProGamer99MC</div>
+                    <div class="creator-info">Speedruns and challenge completions. 21K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">💎</div>
+                    <div class="creator-name">DiamondHunter</div>
+                    <div class="creator-handle">@DiamondHunterXD</div>
+                    <div class="creator-info">Mining guides and ore location tutorials. 13K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎭</div>
+                    <div class="creator-name">ChaosNinja</div>
+                    <div class="creator-handle">@ChaosNinjaGames</div>
+                    <div class="creator-info">Chaos games and community events. 17K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🔥</div>
+                    <div class="creator-name">BlazeFury</div>
+                    <div class="creator-handle">@BlazeFuryStreams</div>
+                    <div class="creator-info">Fast-paced survival and speed challenges. 20K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🌙</div>
+                    <div class="creator-name">NightShadow</div>
+                    <div class="creator-handle">@NightShadowMC</div>
+                    <div class="creator-info">Night-time adventure streams and exploration. 14K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🏆</div>
+                    <div class="creator-name">ChampionPlayz</div>
+                    <div class="creator-handle">@ChampionPlayzTV</div>
+                    <div class="creator-info">Tournament hosting and competitive gaming. 23K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">✨</div>
+                    <div class="creator-name">LunaGlow</div>
+                    <div class="creator-handle">@LunaGlowStreams</div>
+                    <div class="creator-info">Creative builds and aesthetic showcase streams. 15K followers</div>
+                    <a href="https://twitch.tv" target="_blank" class="platform-link twitch-link">Watch on Twitch</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- YOUTUBE CREATORS -->
+        <div class="creators-section">
+            <h2 class="section-title">📺 YouTube Creators</h2>
+            <div class="creators-grid">
+                <div class="creator-card">
+                    <div class="creator-icon">🎬</div>
+                    <div class="creator-name">EpicBuilds</div>
+                    <div class="creator-handle">@EpicBuildsYT</div>
+                    <div class="creator-info">Building tutorials and project showcases. 250K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎞️</div>
+                    <div class="creator-name">SurvivalSeries</div>
+                    <div class="creator-handle">@SurvivalSeriesYT</div>
+                    <div class="creator-info">Long-form survival series and series finale videos. 320K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎯</div>
+                    <div class="creator-name">RedstoneRangers</div>
+                    <div class="creator-handle">@RedstoneRangersYT</div>
+                    <div class="creator-info">Redstone contraption builds and tutorials. 180K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🌟</div>
+                    <div class="creator-name">StarCraft</div>
+                    <div class="creator-handle">@StarCraftMC</div>
+                    <div class="creator-info">Episode-based story-driven gameplay. 290K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎪</div>
+                    <div class="creator-name">AdventureAce</div>
+                    <div class="creator-handle">@AdventureAceYT</div>
+                    <div class="creator-info">Adventure vlogs and exploration content. 210K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">📚</div>
+                    <div class="creator-name">TutorialTitan</div>
+                    <div class="creator-handle">@TutorialTitanMC</div>
+                    <div class="creator-info">How-to guides and tips & tricks videos. 270K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎨</div>
+                    <div class="creator-name">ArtisticEcho</div>
+                    <div class="creator-handle">@ArtisticEchoYT</div>
+                    <div class="creator-info">Artistic builds and creative direction showcase. 155K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">⚡</div>
+                    <div class="creator-name">SpeedVortex</div>
+                    <div class="creator-handle">@SpeedVortexGaming</div>
+                    <div class="creator-info">Speed challenges and time-lapse builds. 195K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎵</div>
+                    <div class="creator-name">MelodyBuilds</div>
+                    <div class="creator-handle">@MelodyBuildsYT</div>
+                    <div class="creator-info">Music-synced builds and cinematic content. 235K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🌊</div>
+                    <div class="creator-name">WaveRider</div>
+                    <div class="creator-handle">@WaveRiderMC</div>
+                    <div class="creator-info">Water mechanics and aquatic building. 160K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎯</div>
+                    <div class="creator-name">FocusFrame</div>
+                    <div class="creator-handle">@FocusFrameGaming</div>
+                    <div class="creator-info">Minimalist documentaries and deep dives. 175K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🚀</div>
+                    <div class="creator-name">RocketCraft</div>
+                    <div class="creator-handle">@RocketCraftYT</div>
+                    <div class="creator-info">High-energy gameplay and epic moments. 305K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">💼</div>
+                    <div class="creator-name">ProducerPro</div>
+                    <div class="creator-handle">@ProducerProMC</div>
+                    <div class="creator-info">Production tips and behind-the-scenes content. 145K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎭</div>
+                    <div class="creator-name">DramaKing</div>
+                    <div class="creator-handle">@DramaKingMC</div>
+                    <div class="creator-info">Story-based content and roleplay series. 220K subscribers</div>
+                    <a href="https://youtube.com" target="_blank" class="platform-link youtube-link">Watch on YouTube</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIKTOK CREATORS -->
+        <div class="creators-section">
+            <h2 class="section-title">📱 TikTok Creators</h2>
+            <div class="creators-grid">
+                <div class="creator-card">
+                    <div class="creator-icon">⚡</div>
+                    <div class="creator-name">QuickClips</div>
+                    <div class="creator-handle">@QuickClipsMC</div>
+                    <div class="creator-info">Short-form funny moments and fails. 890K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">✨</div>
+                    <div class="creator-name">BuildsIn60</div>
+                    <div class="creator-handle">@BuildsIn60Secs</div>
+                    <div class="creator-info">60-second build challenges and hacks. 1.2M followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">😂</div>
+                    <div class="creator-name">MinecraftMemes</div>
+                    <div class="creator-handle">@MinecraftMemeKing</div>
+                    <div class="creator-info">Hilarious Minecraft memes and jokes. 740K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎬</div>
+                    <div class="creator-name">ViralVerse</div>
+                    <div class="creator-handle">@ViralVerseMC</div>
+                    <div class="creator-info">Trending Minecraft challenges. 950K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🏆</div>
+                    <div class="creator-name">WinnerTok</div>
+                    <div class="creator-handle">@WinnerTokGaming</div>
+                    <div class="creator-info">Epic wins and clutch moments. 1.1M followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎪</div>
+                    <div class="creator-name">TikTokTricks</div>
+                    <div class="creator-handle">@TikTokTricksMC</div>
+                    <div class="creator-info">Cool tricks and hidden features. 680K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🌟</div>
+                    <div class="creator-name">StarTok</div>
+                    <div class="creator-handle">@StarTokMC</div>
+                    <div class="creator-info">Best clips compilation and highlights. 810K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">💥</div>
+                    <div class="creator-name">ExplosivePlays</div>
+                    <div class="creator-handle">@ExplosivePlaysMC</div>
+                    <div class="creator-info">TNT pranks and explosion content. 920K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎨</div>
+                    <div class="creator-name">ArtTok</div>
+                    <div class="creator-handle">@ArtTokMinecraft</div>
+                    <div class="creator-info">Beautiful build timelapse videos. 750K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🤯</div>
+                    <div class="creator-name">MindBlown</div>
+                    <div class="creator-handle">@MindBlownMC</div>
+                    <div class="creator-info">Shocking twists and plot twists. 630K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎯</div>
+                    <div class="creator-name">PerfectShots</div>
+                    <div class="creator-handle">@PerfectShotsMC</div>
+                    <div class="creator-info">Cinematic shots and beautiful angles. 870K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">👀</div>
+                    <div class="creator-name">ReactTok</div>
+                    <div class="creator-handle">@ReactTokGaming</div>
+                    <div class="creator-info">Reacting to Minecraft insanity. 560K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🔥</div>
+                    <div class="creator-name">FireContent</div>
+                    <div class="creator-handle">@FireContentMC</div>
+                    <div class="creator-info">Hot trending Minecraft content. 1.05M followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+
+                <div class="creator-card">
+                    <div class="creator-icon">🎮</div>
+                    <div class="creator-name">GamerLife</div>
+                    <div class="creator-handle">@GamerLifeMC</div>
+                    <div class="creator-info">Gaming lifestyle and entertainment. 705K followers</div>
+                    <a href="https://tiktok.com" target="_blank" class="platform-link tiktok-link">Follow on TikTok</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 MinerSMP. All rights reserved. | Support Your Favorite Content Creator!</p>
+    </footer>
+</body>
+</html>
